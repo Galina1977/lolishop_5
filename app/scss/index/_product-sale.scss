@@ -1,0 +1,30 @@
+.product-sale {
+   @include adaptiv-value("padding-top", 160, 60, 1);
+   @include adaptiv-value("padding-bottom", 120, 30, 1);
+   background-color: #fff;
+   &__inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      @include adaptiv-value("gap", 30, 28, 1);
+   }
+   &__title {
+      text-align: center;
+      &:not(:last-child) {
+         @include adaptiv-value("margin-bottom", 24, 13, 1);
+      }
+   }
+   &__text {
+      max-width: 650px;
+      text-align: center;
+      @extend%roboto-500;
+      @include adaptiv-value("font-size", 16, 14, 1);
+      line-height: 26/16 * 100%;
+      color: #8d8d8d;
+      margin: 0 auto;
+      @include adaptiv-value("margin-bottom", 60, 26, 1);
+   }
+   &__footer {
+      padding: 32px 0 0 0;
+      text-align: center;
+   }
+}

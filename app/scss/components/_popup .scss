@@ -1,0 +1,44 @@
+.popup {
+   max-width: 520px;
+   margin: 50px auto;
+   position: relative;
+   &__header {
+      display: flex;
+      align-items: center;
+      @include adaptiv-value("padding-top", 15, 10, 1);
+      @include adaptiv-value("padding-bottom", 15, 10, 1);
+      @include adaptiv-value("padding-right", 25, 15, 1);
+      @include adaptiv-value("padding-left", 40, 25, 1);
+      background-color: #ececec;
+      border-radius: 8px 8px 0 0;
+   }
+   &__close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      margin-left: auto;
+      cursor: pointer;
+      opacity: 0.2;
+      transform: opacity 0.7s;
+      &:hover {
+         opacity: 0.8;
+      }
+      &-icon {
+         width: 16px;
+         height: 16px;
+      }
+   }
+   &__body {
+      @include adaptiv-value("padding", 40, 20, 0);
+      background-color: #fff;
+      border-radius: 0 0 8px 8px;
+   }
+   &__title {
+      @include adaptiv-value("font-size", 18, 16, 1);
+      line-height: 26/18 * 100%;
+      color: #000;
+      @extend%roboto-500;
+   }
+}

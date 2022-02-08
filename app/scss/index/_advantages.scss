@@ -1,0 +1,67 @@
+.advantages {
+   @include adaptiv-value("padding-top", 120, 50, 1);
+   @include adaptiv-value("padding-bottom", 120, 35, 1);
+   background: #fff5f5;
+   &__header {
+      margin-bottom: 50px;
+   }
+   &__body {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px -30px;
+   }
+   &__column {
+      padding: 0 15px;
+      margin: 0 0 30px 0;
+      flex: 0 1 33.333%;
+      @media (max-width: 1040px) {
+         flex: 0 1 50%;
+         &:last-child {
+            flex: 1 1 100%;
+         }
+      }
+      @media (max-width: 630px) {
+         flex: 0 1 100%;
+      }
+   }
+   &__item {
+      height: 100%;
+      text-align: center;
+      @include adaptiv-value("padding-top", 110, 95, 1);
+      @include adaptiv-value("padding-bottom", 30, 15, 1);
+      @include adaptiv-value("padding-right", 30, 15, 1);
+      @include adaptiv-value("padding-left", 30, 15, 1);
+      background-color: #fff;
+      position: relative;
+      &::before {
+         content: "";
+         display: block;
+         background-image: url("../images/icons/icon_1.png");
+         background-repeat: no-repeat;
+         width: 60px;
+         height: 60px;
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%);
+         top: 30px;
+      }
+      &_return {
+         &::before {
+            background-image: url("../images/icons/icon_2.png");
+         }
+      }
+      &_support {
+         &::before {
+            background-image: url("../images/icons/icon_3.png");
+         }
+      }
+   }
+   &__text {
+      display: block;
+      @extend%roboto-700;
+      @include adaptiv-value("font-size", 16, 14, 1);
+      line-height: 150%;
+      letter-spacing: 0.1px;
+      color: #000;
+   }
+}

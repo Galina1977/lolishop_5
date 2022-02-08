@@ -1,0 +1,129 @@
+.shop {
+   @include adaptiv-value("padding-top", 100, 40, 1);
+   @include adaptiv-value("padding-bottom", 105, 60, 1);
+   &__inner {
+      display: flex;
+   }
+   &__btn-mobile {
+      display: none;
+   }
+   &__content-header {
+      display: flex;
+      justify-content: space-around;
+      @include adaptiv-value("margin-bottom", 35, 25, 1);
+   }
+   &__content-body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      grid-gap: 30px;
+   }
+   &__pagination {
+      @include adaptiv-value("margin-top", 70, 30, 1);
+   }
+}
+
+// Блок кнопки Грид и Лист
+.content-header {
+   padding: 15px 30px;
+   border: 1px solid #ececec;
+   &__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   &__btn {
+      opacity: 0.3;
+      outline: none;
+      & + & {
+         margin-left: 10px;
+      }
+      &--active {
+         opacity: 1;
+         color: #fe3e57;
+      }
+      &-grid {
+         width: 20px;
+         height: 20px;
+      }
+      &-line {
+         width: 25px;
+         height: 20px;
+      }
+   }
+}
+
+// Карточки товара
+.card-product {
+   &--list {
+      display: flex;
+      align-items: center;
+      max-width: 100%;
+      width: 100%;
+      border: 1px solid #ececec;
+      .card-product__images {
+         width: 100%;
+         max-width: 285px;
+         height: 285px;
+      }
+   }
+}
+
+// пагинация
+.pagination {
+   width: 100%;
+   &__list {
+      display: flex;
+      justify-content: center;
+   }
+   &__item {
+      font-size: 18px;
+      line-height: 22px;
+      color: #c4c4c4;
+      @include adaptiv-value("padding-top", 6, 5, 1);
+      @include adaptiv-value("padding-bottom", 6, 5, 1);
+      @include adaptiv-value("padding-right", 12, 11, 1);
+      @include adaptiv-value("padding-left", 12, 11, 1);
+      border: 2px solid transparent;
+      @include adaptiv-value("margin-left", 4, 1, 0);
+      @include adaptiv-value("margin-right", 4, 1, 0);
+      &--active {
+         border: 2px solid #ff0000;
+         color: #ff0000;
+      }
+   }
+   &__link {
+      display: block;
+   }
+}
+
+@media (max-width: 1120px) {
+   .shop {
+      &__inner {
+         flex-direction: column;
+      }
+      &__btn-mobile {
+         display: block;
+         color: #fff;
+         text-transform: uppercase;
+         text-align: center;
+         padding: 15px 5px;
+         width: 100%;
+         background-color: #201e1e;
+         @include adaptiv-value("margin-bottom", 30, 20, 1);
+      }
+      &__box-mobile {
+         display: none;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .shop {
+      .content-header {
+         &__buttons {
+            display: none;
+         }
+      }
+   }
+}

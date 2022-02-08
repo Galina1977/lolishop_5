@@ -1,0 +1,77 @@
+@function max($numbers...) {
+   @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+   @return m#{i}n(#{$numbers});
+}
+
+%checkbox-hidden {
+   width: 1;
+   height: 1;
+   overflow: hidden;
+   clip: rect(0 0 0 0);
+   position: absolute;
+}
+
+%radio-hidden {
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+   clip: rect(0 0 0 0);
+   position: absolute;
+}
+
+%roboto-400 {
+   font-family: "Roboto-Regular", sans-serif;
+   font-weight: 400;
+}
+
+%roboto-500 {
+   font-family: "Roboto-Medium", sans-serif;
+   font-weight: 500;
+}
+
+%montserrat-600 {
+   font-family: "Montserrat-SemiBold", sans-serif;
+   font-weight: 600;
+}
+
+%roboto-700 {
+   font-family: "Roboto-Bold", sans-serif;
+   font-weight: 700;
+}
+
+%montserrat-900 {
+   font-family: "Montserrat-Black", sans-serif;
+   font-weight: 900;
+}
+
+//Адаптивное свойство.....................
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+   $addSize: $startSize - $minSize;
+   @if $type==1 {
+      //Только если меньше контейнера
+      #{$property}: $startSize + px;
+      @media (max-width: #{$maxWidthContainer + px}) {
+         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+      }
+   } @else if $type==2 {
+      //Только если больше контейнера
+      #{$property}: $startSize + px;
+      @media (min-width: #{$maxWidthContainer + px}) {
+         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+      }
+   } @else {
+      //Всегда
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+   }
+}
+// ..............................................
+
+$minWidth: 320px;
+$maxWidth: 1440;
+$maxWidthContainer: 1270;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;

@@ -1,0 +1,49 @@
+html {
+   box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+   box-sizing: inherit;
+}
+
+html,
+body {
+   height: 100%;
+}
+
+html {
+   margin-right: 0 !important;
+   overflow: visible !important;
+}
+
+body.lock {
+   overflow: hidden;
+}
+
+body {
+   @extend%roboto-400;
+   background-color: #fff;
+   color: #3a3a3a;
+   min-width: 320px;
+   overflow-x: hidden;
+}
+
+.wrapper {
+   width: 100%;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+
+._container {
+   max-width: 1200px;
+   padding: 0px 15px;
+   margin: 0 auto;
+}
+
+.page {
+   flex: 1 1 auto;
+}

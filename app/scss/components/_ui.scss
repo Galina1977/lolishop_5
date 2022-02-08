@@ -1,0 +1,236 @@
+// Уникальные  классы
+
+// Липкая кнопка
+.upbtn {
+   opacity: 0.8;
+   z-index: 9999;
+   @include adaptiv-value("width", 60, 40, 1);
+   @include adaptiv-value("height", 60, 40, 1);
+   position: fixed;
+   bottom: -80px;
+   left: 20px;
+   cursor: pointer;
+   border: 3px solid #fe3e57;
+   transition: all 0.7s ease-in-out;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-color: #fe3e57;
+   background-image: url("../images/icons/arrow-scroll.svg");
+   &:hover {
+      opacity: 1;
+      background-color: #000;
+   }
+}
+
+.logo {
+   &__img {
+      @include adaptiv-value("width", 153, 100, 1);
+      @include adaptiv-value("height", 50, 30, 1);
+      object-fit: cover;
+   }
+}
+
+// Картинка
+._ibg {
+   position: relative;
+   img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      object-position: center;
+   }
+}
+
+// Кнопка
+._btn {
+   display: inline-block;
+   text-align: center;
+   @include adaptiv-value("min-height", 50, 35, 1);
+   @include adaptiv-value("font-size", 16, 14, 1);
+   line-height: 26/16 * 100%;
+   letter-spacing: 0.2px;
+   @extend%roboto-500;
+   color: #fff;
+   text-transform: uppercase;
+   @include adaptiv-value("padding-top", 20, 15, 1);
+   @include adaptiv-value("padding-bottom", 20, 15, 1);
+   padding-left: 30px;
+   padding-right: 30px;
+   background-color: #fe3e57;
+   box-shadow: 0px 7px 20px 0px rgba (255, 17, 48, 0.3);
+   transition: background 0.4s;
+   @media (any-hover: hover) {
+      &:hover {
+         background: #000;
+      }
+   }
+   @media (max-width: 768px) {
+      width: 100%;
+   }
+}
+// Заголовок
+._title {
+   display: block;
+   font-size: 40px;
+   @include adaptiv-value("font-size", 40, 20, 1);
+   line-height: 45/40 * 100%;
+   font-weight: 700;
+   color: #29282d;
+   text-transform: uppercase;
+}
+
+._discount {
+   display: block;
+   @include adaptiv-value("font-size", 22, 14, 1);
+   line-height: 26/22 * 100%;
+   @extend%roboto-500;
+   text-transform: uppercase;
+   color: #fe3e57;
+}
+
+// Заголовки в футере
+._footer-title {
+   @extend%roboto-500;
+   @include adaptiv-value("font-size", 22, 17, 1);
+   line-height: 24/22 * 100%;
+}
+
+// Иконки
+._icon {
+   display: block;
+   color: #000;
+   font-weight: 400;
+   font-size: 24px;
+   position: relative;
+   transition: color 0.3s ease 0s;
+   &:hover {
+      color: #fe3e57;
+   }
+}
+
+// кругляшок у корзины и избранного
+._number {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: -10px;
+   right: -10px;
+   border-radius: 50%;
+   background-color: #fe3e57;
+   color: #fff;
+   font-size: 12px;
+}
+// Swiper слайдер
+._swiper {
+   overflow: hidden;
+   .swiper-wrapper {
+      width: 100%;
+      height: 100%;
+      box-sizing: content-box;
+      display: flex;
+      position: relative;
+   }
+   &.swiper-container-vertical {
+      .swiper-wrapper {
+         flex-direction: column;
+      }
+   }
+   &.swiper-container-autoheight {
+      .swiper-wrapper {
+         align-items: flex-start;
+      }
+   }
+}
+.swiper-container-initialized {
+   .swiper-slide {
+      flex-shrink: 0;
+   }
+}
+.swiper-container-android {
+   .swiper-slide,
+   .swiper-wrapper {
+      transform: translate3d(0px, 0, 0);
+   }
+}
+.swiper-button-lock {
+   display: none !important;
+}
+.slider-arrows {
+   display: grid;
+   grid-template-columns: repeat(2, 48px);
+   column-gap: 8px;
+}
+.slider-arrow {
+   text-align: center;
+   pointer-events: auto;
+   border-radius: 50%;
+   height: 48px;
+   background-color: #fe3e57;
+   font-size: 12px;
+   cursor: pointer;
+   transition: all 0.3s ease 0s;
+   &_prev,
+   &_next {
+      &::before {
+         color: #fff;
+         font-size: 22px;
+      }
+   }
+   @media (any-hover: hover) {
+      &:hover {
+         background-color: #000;
+      }
+   }
+}
+.swiper-pagination-bullets {
+   display: flex;
+   flex-wrap: wrap;
+}
+.swiper-pagination-bullet {
+   cursor: pointer;
+   flex: 0 0 27px;
+   height: 27px;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 2px 0px;
+   background: transparent;
+   &:not(:last-child) {
+      margin-right: 12px;
+   }
+   &::after {
+      content: "";
+      width: 11px;
+      height: 11px;
+      background-color: #2d2d2d;
+      border-radius: 50%;
+      transition: background-color 0.3s ease 0s;
+   }
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px solid #fe3e57;
+      transition: transform 0.3s ease 0s;
+      transform: scale(0);
+   }
+}
+.swiper-pagination-bullet-active {
+   &::after {
+      background-color: #fe3e57;
+   }
+   &::before {
+      transform: scale(1);
+   }
+}

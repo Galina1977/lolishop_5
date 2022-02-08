@@ -1,0 +1,370 @@
+.blog {
+   @include adaptiv-value("padding-top", 120, 60, 1);
+   @include adaptiv-value("padding-bottom", 120, 40, 1);
+   &__inner {
+      display: flex;
+      @media (max-width: 1170px) {
+         flex-direction: column;
+      }
+   }
+   &__content {
+      max-width: 770px;
+      margin-right: 30px;
+      @media (max-width: 1170px) {
+         margin-right: 0;
+         max-width: 100%;
+      }
+   }
+   &__content-top {
+      border: 1px solid #ececec;
+      border-top: none;
+   }
+   &__images {
+      padding: 31%;
+      overflow: hidden;
+      @include adaptiv-value("margin-bottom", 32, 17, 1);
+      img {
+         object-position: top;
+      }
+   }
+   &__info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      @include adaptiv-value("padding-left", 30, 20, 1);
+   }
+   &__item {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      line-height: 1.2;
+      @extend%roboto-400;
+      color: #8d8d8d;
+      padding-bottom: 5px;
+      &:not(:last-child) {
+         margin: 0 30px 0 0;
+      }
+      &::before {
+         margin-right: 10px;
+      }
+   }
+   &__box-text {
+      display: flex;
+      flex-direction: column;
+      @include adaptiv-value("padding", 30, 20, 0);
+      @extend%roboto-400;
+   }
+   h3 {
+      @include adaptiv-value("font-size", 22, 20, 1);
+      line-height: 26/22 * 100%;
+      color: #29282d;
+      @include adaptiv-value("margin-bottom", 25, 13, 1);
+   }
+   p {
+      @include adaptiv-value("font-size", 16, 15, 1);
+      line-height: 26/16 * 100%;
+      color: #8d8d8d;
+      &:not(:last-child) {
+         @include adaptiv-value("margin-bottom", 20, 15, 1);
+      }
+   }
+   blockquote {
+      background-color: #f6f6f6;
+      @include adaptiv-value("padding", 40, 20, 0);
+      @include adaptiv-value("font-size", 22, 18, 1);
+      line-height: 32/22 * 100%;
+      @extend%roboto-400;
+      color: #29282d;
+      border-left: 3px solid #fe3e57;
+      @include adaptiv-value("margin-bottom", 35, 20, 1);
+   }
+   &__img-left {
+      @include adaptiv-value("min-width", 340, 231, 1);
+      @include adaptiv-value("height", 274, 187, 1);
+      object-fit: cover;
+      float: left;
+      margin-right: 30px;
+      margin-bottom: 10px;
+   }
+   &__img-right {
+      float: right;
+      margin-left: 30px;
+      margin-bottom: 10px;
+   }
+   &__content-body {
+      @include adaptiv-value("padding-top", 50, 45, 1);
+   }
+   &__tags-share {
+      margin-bottom: 40px;
+   }
+   &__author {
+      margin-bottom: 40px;
+   }
+   &__comments {
+      padding-bottom: 40px;
+      border-bottom: 1px solid #ececec;
+      margin-bottom: 40px;
+   }
+}
+
+// Правая сторона
+.aside-blog {
+   &__item {
+      width: 370px;
+      @include adaptiv-value("padding-top", 35, 20, 1);
+      @include adaptiv-value("padding-bottom", 40, 20, 1);
+      @include adaptiv-value("padding-right", 30, 10, 1);
+      @include adaptiv-value("padding-left", 30, 10, 1);
+      border: 1px solid #ececec;
+      text-align: center;
+      &:not(:last-child) {
+         @include adaptiv-value("margin-bottom", 40, 39, 1);
+      }
+      @media (max-width: 1170px) {
+         width: 100%;
+         .filter-search__input {
+            width: 100%;
+         }
+      }
+   }
+   &__title {
+      display: block;
+      @include adaptiv-value("font-size", 22, 16, 1);
+      line-height: 24/22 * 100%;
+      text-transform: uppercase;
+      color: #29282d;
+      @include adaptiv-value("margin-bottom", 25, 15, 1);
+   }
+}
+
+//Персона
+.person {
+   &__images {
+      @include adaptiv-value("min-width", 160, 120, 1);
+      @include adaptiv-value("height", 160, 120, 1);
+      object-fit: cover;
+      object-position: top;
+      margin: 0 auto;
+      @include adaptiv-value("margin-bottom", 40, 20, 1);
+   }
+   &__name {
+      display: block;
+      @include adaptiv-value("font-size", 18, 16, 1);
+      line-height: 26/18 * 100%;
+      @extend%roboto-700;
+      color: #29282d;
+      @include adaptiv-value("margin-bottom", 10, 5, 1);
+   }
+   &__position {
+      display: block;
+      @include adaptiv-value("font-size", 16, 14, 1);
+      line-height: 26/16 * 100%;
+      @extend%roboto-400;
+      color: #fe3e57;
+      @include adaptiv-value("margin-bottom", 15, 10, 1);
+   }
+   &__text {
+      @include adaptiv-value("font-size", 16, 14, 1);
+      line-height: 26/16 * 100%;
+      @extend%roboto-400;
+      color: #8d8d8d;
+      @include adaptiv-value("margin-bottom", 20, 10, 1);
+   }
+   &__social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   &__link {
+      display: inline-block;
+      font-size: 16px;
+      color: #8d8d8d;
+      &:not(:last-child) {
+         margin: 0 15px 0 0;
+      }
+   }
+}
+
+// Популярные посты
+.latest-post {
+   &__item {
+      display: flex;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ececec;
+      &:not(:last-child) {
+         margin: 0 0 20px 0;
+      }
+   }
+   &__img {
+      @include adaptiv-value("min-width", 80, 60, 1);
+      @include adaptiv-value("height", 80, 60, 1);
+      object-fit: cover;
+      margin-right: 20px;
+   }
+   &__box {
+      text-align: left;
+      > *:not(:last-child) {
+         margin: 0 0 16px 0;
+      }
+   }
+   &__text {
+      display: block;
+      @include adaptiv-value("font-size", 18, 16, 1);
+      line-height: 22/18 * 100%;
+      @extend%roboto-400;
+      color: #29282d;
+   }
+   &__comment {
+      display: flex;
+      align-items: center;
+      @include adaptiv-value("font-size", 16, 15, 1);
+      line-height: 26/16 * 100%;
+      @extend%roboto-400;
+      color: #8d8d8d;
+      &:not(:last-child) {
+         margin: 0 30px 0 0;
+      }
+      &::before {
+         margin-right: 10px;
+      }
+   }
+}
+
+// Теги: Поделиться:
+.tags-share {
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 767.98px) {
+         flex-direction: column;
+         .tags-share__tags {
+            padding-left: 0;
+         }
+         .tags-share__share {
+            padding-right: 0;
+         }
+      }
+   }
+   &__tags,
+   &__share {
+      display: flex;
+      align-items: center;
+      &:not(:last-child) {
+         padding-bottom: 5px;
+      }
+      span {
+         font-size: 16px;
+         line-height: 26px;
+         font-weight: 500;
+         color: #29282d;
+         text-transform: uppercase;
+      }
+      a {
+         color: #727272;
+         margin-left: 12px;
+         &:hover {
+            color: #fe3e57;
+         }
+         &::before {
+            font-size: 16px;
+         }
+      }
+   }
+   &__tags {
+      padding-left: 30px;
+   }
+   &__share {
+      padding-right: 30px;
+   }
+}
+
+// Автор
+.author {
+   display: flex;
+   padding-bottom: 40px;
+   border-bottom: 1px solid #ececec;
+   &__img {
+      @include adaptiv-value("min-width", 140, 135, 1);
+      @include adaptiv-value("height", 140, 135, 1);
+      object-fit: cover;
+      overflow: hidden;
+      margin-right: 30px;
+      @media (max-width: 768px) {
+         margin-right: 0;
+         margin-bottom: 10px;
+      }
+   }
+   @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+   }
+   &__name {
+      display: block;
+      font-size: 22px;
+      line-height: 26px;
+      font-weight: 500;
+      color: #29282d;
+      &:not(:last-child) {
+         margin: 0 0 20px 0;
+      }
+   }
+   &__text {
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 500;
+      color: #8d8d8d;
+   }
+}
+
+// Отправить отзыв
+.form-blog {
+   width: 100%;
+   @extend%roboto-400;
+   &__box-input {
+      display: flex;
+      margin-bottom: 25px;
+   }
+   &__text-input {
+      display: inline-block;
+      width: 375px;
+      height: 50px;
+      padding: 0 20px;
+      @include adaptiv-value("font-size", 16, 13, 1);
+      line-height: 30/16 * 100%;
+      color: #565872;
+      opacity: 0.8;
+      text-transform: uppercase;
+      border: 1px solid #ececec;
+      &:not(:last-child) {
+         margin: 0 20px 0 0;
+      }
+   }
+   &__textarea {
+      display: block;
+      border: 1px solid #ececec;
+      padding: 15px 20px;
+      width: 100%;
+      @include adaptiv-value("height", 175, 150, 1);
+      @include adaptiv-value("font-size", 16, 13, 1);
+      line-height: 30/16 * 100%;
+      color: #565872;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 30px;
+   }
+}
+
+@media (max-width: 1170px) {
+   .form-blog {
+      margin-bottom: 65px;
+      &__box-input {
+         flex-direction: column;
+      }
+      &__text-input {
+         width: 100%;
+         &:not(:last-child) {
+            margin: 0 0 20px 0;
+         }
+      }
+   }
+}
